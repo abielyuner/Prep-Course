@@ -1,0 +1,22 @@
+definicion de objetos:
+En JavaScript, un objeto es un entidad independiente con propiedades y tipos.
+Compáralo con una taza, por ejemplo. Una taza es un objeto con propiedades.
+Una taza tiene un color, un diseño, un peso, un material del que está hecha,
+etc. Del mismo modo, los objetos de JavaScript pueden tener propiedades que
+definan sus características.
+
+definicion de propiedades:
+Una propiedad de un objeto se puede explicar como una variable adjunta al objeto. Las propiedades de un objeto básicamente son lo mismo que las variables comunes de JavaScript, excepto por el nexo con el objeto. Las propiedades de un objeto definen las características del objeto. 
+
+definion de metodos:
+los metodos en un objetos se les conoce como funciones, estas funciones
+se aplican para ejecutar operaciones matematicas, union de strings, etc,
+detro del objeto.
+
+bucles for...in
+Este método recorre todas las propiedades enumerables de un objeto y su cadena de prototipos
+
+ Notación de puntos vs notación de corchetes:
+ En Javascript podemos acceder a las propiedades y/o funciones de un objeto usando cualquier notación: el punto . o los corchetes []
+ 1. Cuando usamos corchetes podemos acceder a propiedades que tienen un espacio o carácter no permitido en la notación de punto (por ejemplo, miMascota.numero de amigos no es válido, pero miMascota["numero de amigos"] sí lo es).
+2. Si queremos minificar nuestro código, la notación del punto no es válida... debemos usar la notación de corchetes.
