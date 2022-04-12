@@ -186,16 +186,22 @@ Descartemos esta opción.
 ```
 
 Como podemos ver los métodos de _Personas_ no fueron pasados a nuestros _Alumnos_. Veamos un poco el porqué.
-
-El constructor del `__proto__` esta ligado a Alumno y luego al `Object Object` de JS. Pero el método `saludar` esta en el objeto `prototype` de Personas... , y esta perfecto, así es como debería funcionar, las instancias acceden al `__proto__` que fue vinculado por el constructor para ver que métodos tienen. Nuestro problema es que al llamar a Persona con `call` en vez de con el método `new` no se esta haciendo ese vinculo en el que `Persona.prototype` se mete en nuestro `Prototype Chain`, y entonces las instancias de Alumno no tienen acceso a los métodos de Persona
-
-Vamos a solucionar ese problema agregando al prototipo los métodos de Persona, para esto vamos a usar el método `Object.create`.
+El constructor del `__proto__` esta ligado a Alumno y luego al `Object Object` de JS. 
+Pero el método `saludar` esta en el objeto `prototype` de Personas... , y esta perfecto, 
+así es como debería funcionar, las instancias acceden al `__proto__` que fue vinculado por el constructor 
+para ver que métodos tienen. Nuestro problema es que al llamar a Persona con `call` 
+en vez de con el método `new` no se esta haciendo ese vinculo en el que `Persona.prototype` 
+se mete en nuestro `Prototype Chain`, y entonces las instancias de Alumno no tienen acceso a los métodos de Persona
+ 
+Vamos a solucionar ese problema agregando al prototipo los métodos de Persona, 
+para esto vamos a usar el método `Object.create`.
 
 ``` javascript
 // usamos `Object.create` porque este guardaba el argumento pasado como `__proto__` del objeto a retornar
 > Alumno.prototype = Object.create(Persona.prototype)
 
-// si recuerdan el objeto prototype siempre tenia una propiedad constructor que hacia referencia a la función en si, con la asignación que hicimos arriba lo pisamos, por lo que deberíamos volver a agregarlo.
+// si recuerdan el objeto prototype siempre tenia una propiedad constructor que hacia referencia a la función en si,
+//   con la asignación que hicimos arriba lo pisamos, por lo que deberíamos volver a agregarlo.
 > Alumno.prototype.constructor = Alumno
 
 > var Franco = new Alumno('Franco','Etcheverri','Montevideo','Bootcamp')
